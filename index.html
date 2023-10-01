@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Maker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+</head>
+
+<body>
+    <div class="loader-wrapper" id="loader">
+        <div class="loader">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+        <p class="loading-text">Generating...</p>
+    </div>
+    <div id="content">
+        <div class="main-center">
+            <div class="main-box">
+                <h1>Please provide the details below</h1>
+                <form id="userForm">
+                    <table>
+                        <tr>
+                            <th> <label for="name">Person's Name<span class="asterisk">*</span>:</label></th>
+                            <td><input type="text" id="name" placeholder="Enter name" required></td>
+                        </tr>
+                        <tr>
+                            <th> <label for="message">Message<span class="asterisk">*</span>:</label></th>
+                            <td><textarea type="text" id="message" placeholder="Enter your message" rows="4" cols="21"
+                                    required></textarea></td>
+                        </tr>
+                        <tr>
+                            <th><label for="rsvp">Your Name<span class="asterisk">*</span>:</label></th>
+                            <td><input type="text" id="rsvp" placeholder="Enter Name" required></td>
+                        </tr>
+                    </table>
+                </form>
+                <button onclick="validateForm()">Generate</button>
+                <br>
+                <label for="themeSelector">Select a Theme:</label>
+                <select id="themeSelector" onchange="changeTheme()">
+                    <option>select one</option>
+                    <option value="cre">Funeral</option>
+                    <option value="rom">Romantic</option>
+                    <option value="wsh">Wish</option>
+                </select>
+                <br>
+                <button class="theme-button" id="creTheme" onclick="dowCre()"><i class="fas fa-download"></i></button>
+                <button class="theme-button" id="romTheme" onclick="dowRom()"><i class="fas fa-download"></i></button>
+                <button class="theme-button" id="wshTheme" onclick="dowWsh()"><i class="fas fa-download"></i></button>
+            </div>
+        </div>
+        <div class="cards">
+            <div id="cremation-card" class="cremation-container cre-img">
+                <p class="cre-text">In loving memory of</p>
+                <p class="person-name" id="cre-name"></p>
+                <div class="custom-box">
+                    <div class="person-details">
+                        <p class="cre-one">details</p>
+                        <br>
+                        <p class="cre-one" id="cre-details"></p>
+                    </div>
+                </div>
+                <div class="cre-foot">
+                    <p>RSVP</p>
+                    <p id="cre-yourdetails"></p>
+                </div>
+            </div>
+            <div id="romantic-card" class="cremation-container rom-img">
+                <p class="person-name" id="rom-name"></p>
+                <p class="cre-text">I just want to say...</p>
+                <div class="custom-box">
+                    <div class="rom-box">
+                        <p class="cre-one" id="rom-details"></p>
+                    </div>
+                </div>
+                <h3>yours</h3>
+                <p id="rom-yourdetails"></p>
+                <p class="cre-text">Lot's of love...</p>
+            </div>
+            <div id="wish-card" class="cremation-container wsh-img">
+                <p class="person-name" id="wsh-name"></p>
+                <br>
+                <br>
+                <br>
+                <div class="custom-box">
+                    <div class="person-details">
+                        <br>
+                        <p class="cre-one" id="wsh-details"></p>
+                    </div>
+                </div>
+                <br>
+                <div class="cre-foot">
+                    <h5>From:</h5>
+                    <p id="wsh-yourdetails"></p>
+                </div>
+                <br>
+                <br>
+                <img src="pom.png">
+            </div>
+        </div>
+        <div class="my-head">
+            <p><strong>User Instructions:</strong> Welcome to our webpage offering three distinct cards available for
+                download in PDF format. Ensure accurate completion of all fields, then click the
+                <strong>"Generate"</strong> button. Choose your desired theme and proceed to click the
+                <strong>"Download"</strong> button.
+            </p>
+            <p> For a general wish card, simply enter the title (e.g., Happy Birthday) in the person's name field.</p>
+            <p><strong> Enjoy your experience on this webpage. For any suggestions or queries, feel free to contact me
+                    at nailwalnikhil17@gmail.com.</strong></p>
+            <p>made with <i class="fas fa-heart"></i> by nikhil nailwal</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
